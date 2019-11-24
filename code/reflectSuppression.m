@@ -20,6 +20,7 @@ function supressedImage3D = reflectSuppression(Image3D, h, epsilon)
 		gradient=getGradient(Image3D(:,:,dim));
 		gradient_r=gradient(:,:,1);
 		gradient_c=gradient(:,:,2);
+    %figure();title('Gradients');subplot(1,2,1); imshow(gradient_r); subplot(1,2,2); imshow(gradient_c);
 		gradient_norm=sqrt(gradient_r.^2 + gradient_c.^2);
 		gradient_norm_thresh=thresh(gradient_norm, h);					 % gradient thresholding
 		% gradient_norm_thresh = wthresh(gradient_norm, 'h', h);		 % gradient thresholding matlab
@@ -32,7 +33,7 @@ function supressedImage3D = reflectSuppression(Image3D, h, epsilon)
 	end
 
 	rhs=Image3D_Laplacian_2+epsilon*Image3D;
-
+  %figure();title('Loss function');imshow(rhs);
 	for dim = 1:d
 		supressedImage3D(:,:,dim) = solvePoisonDCT(rhs(:,:,dim),1,0,epsilon);	  % solve the PDE using DCT
 	end

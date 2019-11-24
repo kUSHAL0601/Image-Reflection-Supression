@@ -5,12 +5,12 @@ pkg load image
 pkg load video
 
 % GETTING INFO %
-file_name="youtube-2.mp4"
+file_name="../Videos/youtube-1.mp4"
 info=aviinfo(file_name);
 n=getfield(info,"NumFrames");
 fps=getfield(info,"FramesPerSecond");
 
-out_name=strjoin(strcat(strsplit(file_name,".")(1),'_out.avi'));
+out_name=strcat(file_name,'_out.avi');
 
 f_out=avifile(out_name,"fps",fps,"gop",n);
 
