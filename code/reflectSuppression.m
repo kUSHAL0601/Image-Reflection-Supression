@@ -1,5 +1,5 @@
-% single image reflection suppression via gradient thresholding and solving
-% PDE using discrete cosine transform(DCsupressedImage3D)
+% SINGLE IMAGE REFLECTION SUPPRESSION USING GRADIENT THRESHOLDING AND SOLVING
+% PDE USING DCT of Image3D
 
 % Input:
 % Image3D	  - the input image
@@ -34,6 +34,6 @@ function supressedImage3D = reflectSuppression(Image3D, h, epsilon)
 	rhs=Image3D_Laplacian_2+epsilon*Image3D;
 
 	for dim = 1:d
-		supressedImage3D(:,:,dim) = solvePoisonDCT(rhs(:,:,dim),1,0,epsilon);	  % solve the PDE using DCsupressedImage3D 
+		supressedImage3D(:,:,dim) = solvePoisonDCT(rhs(:,:,dim),1,0,epsilon);	  % solve the PDE using DCT
 	end
 end

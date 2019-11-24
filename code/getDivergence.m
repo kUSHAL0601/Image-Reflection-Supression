@@ -1,7 +1,9 @@
-% compute the divergence of gradient
-% Input gradient2D is a matrix of size r*c*2
-% gradient2D(:,:,1) is the derivative along the row-direction
-% gradient2D(:,:,2) is the derivative along the column-direction
+% COMPUTE THE DIVERGENCE OF GRADIENT
+% Input:
+% gradient2D(:,:,1) - derivative along row
+% gradient2D(:,:,2) - derivative along column
+% Output:
+% divergence
 
 function divergence=getDivergence(gradient2D)
 	[r,c,d]=size(gradient2D);

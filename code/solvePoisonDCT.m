@@ -1,5 +1,4 @@
-% solve the equation  (mu*L^2 - lambda*L + epsilon)*u = rhs via DCT
-% where L means Laplacian operator 
+% SOLVE THE EQUATION (mu*L^2 - lambda*L + epsilon)*u = rhs USING DCT [L is LPALACIAN OPERATOR]
 
 function u=solvePoisonDCT(rhs,mu,lambda,epsilon)   
 	[r,c]=size(rhs);
@@ -20,7 +19,7 @@ function u=solvePoisonDCT(rhs,mu,lambda,epsilon)
 	const = mu * kappa.^2 - lambda * kappa + epsilon;
 	u=dct2(rhs);
 	u=u./const;
-	u=idct2(u);                       % refer to Theorem 1 in the paper
-
+  % FROM THEOREM 1 IN THE PAPER
+	u=idct2(u);
 	return
 end
